@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@theme {
+  --color-void: #0c0b17;
+  --color-bench: #20192c;
+  --color-line: #584765;
+  --color-ink: #fbf3ff;
+  --color-dim: #c1afce;
+  --color-signal: #f9b7fb;
+  --font-display: "Trebuchet MS", "Arial Black", sans-serif;
+}
+:root { font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--color-ink); background:var(--color-void); font-synthesis:none; }
+* { box-sizing:border-box; }
+body { margin:0; min-width:320px; }
+button,input { font:inherit; }
+button { cursor:pointer; }
+button:focus-visible,input:focus-visible { outline:2px solid var(--color-signal); outline-offset:3px; }
+input[type=range] { accent-color:var(--color-signal); width:100%; min-width:0; }
+.wrap { max-width:1550px; margin:0 auto; padding:clamp(12px,3vw,32px); display:flex; flex-direction:column; gap:16px; }
+.stage-shell { background:#090610; border:1px solid var(--color-line); border-radius:18px; padding:8px; overflow:hidden; box-shadow:0 18px 60px #0006; }
+.stage-fit { position:relative; aspect-ratio:var(--ar,1); width:100%; overflow:hidden; border-radius:11px; touch-action:none; background:radial-gradient(circle at center,#282139,#08070d); }
+.stage-fit canvas { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:fill; }
+.stage-fit canvas.invisible { visibility:hidden; }
+button[aria-pressed=true] { box-shadow:0 0 0 1px var(--color-signal) inset; }
+@media (max-width:1023px) { .stage-shell { margin:0 auto; width:100%; max-width:700px; } }
+@media (max-width:480px) { .wrap {padding:12px; gap:14px;} .stage-shell {padding:4px; border-radius:12px;} .stage-fit {border-radius:8px;} }
